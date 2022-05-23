@@ -32,10 +32,8 @@ public class PersonajeTest {
 
     @Test
     public void PruebaCuantosHowwartshayAlive(){
-        // TODO Crea una función que cuente a todos los personajes que forman parte del staff de Howarts y que están vivos
-        //
         // TODO comprueba que tu función devuelve el número correcto de elementos
-            Assertions.assertEquals(17,ej.personajes.obtenerPotters().length);
+            Assertions.assertEquals(17,ej.personajes.obtenerTodos().length);
     }
 
     @Test

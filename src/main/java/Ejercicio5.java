@@ -124,6 +124,26 @@ public class Ejercicio5 {
         return getArraySinNulos(out,i);
     }
 
+    // TODO Crea una función que cuente a todos los personajes que forman parte del staff de Howarts y que están vivos
+
+    public Personaje[] StaffHowartsyAlive() {
+
+        int cont = 0;
+        Personaje[] array = personajes.obtenerTodos();
+        for (Personaje person : array) {
+            if (person.getAlive() && person.getHogwartsStaff()) {
+                array[cont] = person;
+                cont++;
+            }
+        }
+        return getArraySinNulos(array, cont);
+    }
+
+
+
+
+
+
 
 
 
