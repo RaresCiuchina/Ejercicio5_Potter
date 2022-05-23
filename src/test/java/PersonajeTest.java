@@ -115,10 +115,21 @@ public class PersonajeTest {
         //  en su nombre y están vivos
         //
         // TODO comprueba que tu función devuelve el número correcto de elementos
-        Personaje[] personajesEsperados = {new Personaje("Patricia Stimpson", true, true, false, "", true, "")};
-        Personaje[] personajesactuales = ej.dimePersonajesQueContengaElStringYEstenVivos("tri");
-        Assertions.assertArrayEquals(personajesEsperados, personajesactuales);
 
+        Assertions.assertEquals(1,ej.dimePersonajesQueContengaElStringYEstenVivos("tri").length);
+
+    }
+    @Test
+    public void Pruebatiene_ron() {
+        Assertions.assertEquals(1,ej.dimePersonajesQueContengaElStringYEstenVivos("ron").length);
+    }
+    @Test
+    public void Pruebatiene_Ron() {
+        Assertions.assertEquals(2,ej.dimePersonajesQueContengaElStringYEstenVivos("Ron").length);
+    }
+    @Test
+    public void Pruebatiene_RON() {
+        Assertions.assertEquals(0,ej.dimePersonajesQueContengaElStringYEstenVivos("RON").length);
     }
 
 
@@ -128,10 +139,7 @@ public class PersonajeTest {
         //  exactamente como el string recibido
         //
         // TODO comprueba que tu función devuelve el número correcto de elementos
-        Personaje[] personajesEsperados = {new Personaje("Harry Potter", true, true, false, "Daniel Radcliffe", true, "http://hp-api.herokuapp.com/images/harry.jpg")};
-        Personaje[] personajesactuales = ej.dimePersonajesQueContengaElStringYEstenVivos("Harry Potter");
-        Assertions.assertArrayEquals(personajesEsperados, personajesactuales);
-
+        Assertions.assertEquals(1,ej.dimeQuePersonajesSeLlamanAsi("Harry Potter").length);
 
     }
 }

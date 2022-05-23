@@ -74,9 +74,9 @@ public class Ejercicio5 {
         Personaje[] out = new Personaje[personajes.obtenerTodos().length];
         int i=0;
 
-        for (Personaje personaje1 : out) {
+        for (Personaje personaje1 : personajes.obtenerTodos()) {
             boolean encontrado = true;
-            if (!(personaje1.getName().contentEquals(letras))) {
+            if (!(personaje1.getName().equals(letras))) {
                 encontrado = false;
                 break;
             }
