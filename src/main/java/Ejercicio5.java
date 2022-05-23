@@ -11,48 +11,23 @@ public class Ejercicio5 {
     // TODO Haz una función que te devuelva un array compuesto por:
     //  Personajes que tienen imagen asociada.
 
+
+
+    public Personaje[] getArraySinNulos(Personaje[] array, int nulos) {
+        return Arrays.copyOfRange(array,0, nulos);
+    }
+
     public Personaje[] tienenurl() {
 
         int cont = 0;
         Personaje[] array = personajes.obtenerTodos();
         for (Personaje person : array) {
-            if (person.getImage().isEmpty()) {
+            if (!person.getImage().isEmpty()) {
                 array[cont] = person;
                 cont++;
             }
         }
-        return getArraySinNulos(array, cont);
-    }
-
-    public Personaje[] getArraySinNulos(Personaje[] array, int nulos) {
-        return Arrays.copyOfRange(array, 6, nulos);
-    }
-
-
-    //TODO Crea una función que cuente a todos los personajes que forman parte del staff de Howarts y que están vivos
-    public int ContarStaffyVivos() {
-        int cont = 0;
-        Personaje[] finalpers = personajes.obtenerTodos();
-        for (Personaje person : finalpers) {
-            if (person.getAlive() && person.getHogwartsStaff()) {
-                cont++;
-            }
-
-        }
-        return cont;
-
-    }
-
-    //TODO Crea una función que cuente a todos los personajes que forman parte del staff de Howarts y que están muertos
-    public int ContarStaffyMuertos() {
-        int cont = 0;
-        Personaje[] finalpers = personajes.obtenerTodos();
-        for (Personaje person : finalpers) {
-            if (person.getAlive() && !person.getHogwartsStaff()) {
-                cont++;
-            }
-        }
-        return cont;
+            return getArraySinNulos(array, cont);
 
     }
 
@@ -65,12 +40,8 @@ public class Ejercicio5 {
         for (Personaje personaje1 : personajes.obtenerTodos()) {
             boolean encontrado = true;
 
-            if (!personaje1.getName().contains(String.valueOf(letra))) {
-                encontrado = false;
-                break;
-            }
-
-            if (encontrado) {
+            if (personaje1.getName().contains(String.valueOf(letra))) {
+                encontrado =true;
                 i++;
             }
         }
@@ -84,19 +55,14 @@ public class Ejercicio5 {
         Personaje[] out = new Personaje[personajes.obtenerTodos().length];
         int i=0;
 
-        for (Personaje personaje1 : out) {
-            boolean encontrado = true;
-            if (!(personaje1.getName().contains(String.valueOf(letras)) && !personaje1.getAlive())) {
-                encontrado = false;
-                break;
-            }
-
-            if (encontrado) {
-                out[i] = personaje1;
+        for (Personaje personaje1 : personajes.obtenerTodos()) {
+            if (personaje1.getName().contains(String.valueOf(letras)) && personaje1.getAlive()) {
+                out[i]=personaje1;
                 i++;
-            }
-        }
 
+            }
+
+        }
         return getArraySinNulos(out,i);
     }
 
@@ -126,23 +92,32 @@ public class Ejercicio5 {
 
     // TODO Crea una función que cuente a todos los personajes que forman parte del staff de Howarts y que están vivos
 
-    public Personaje[] StaffHowartsyAlive() {
+    public int StaffHowartsyAlive() {
 
         int cont = 0;
         Personaje[] array = personajes.obtenerTodos();
         for (Personaje person : array) {
             if (person.getAlive() && person.getHogwartsStaff()) {
-                array[cont] = person;
                 cont++;
             }
         }
-        return getArraySinNulos(array, cont);
+        return cont;
     }
 
+    // TODO Crea una función que cuente a todos los personajes que forman parte del staff de Howarts y que están muertos
 
 
+    public int StaffHowartsyNoAlive() {
 
-
+        int cont = 0;
+        Personaje[] array = personajes.obtenerTodos();
+        for (Personaje person : array) {
+            if (!person.getAlive() && person.getHogwartsStaff()) {
+                cont++;
+            }
+        }
+        return cont;
+    }
 
 
 
