@@ -21,7 +21,7 @@ public class PersonajeTest {
 
 
     @Test
-    public void test2(){
+    public void CuantosPottersHay(){
         // TODO Comprueba que la función: obtenerPotters()
         //  nos devuelve una lista de 6 elementos
         // tip: ej.personajes.obtenerPotters()
@@ -31,11 +31,11 @@ public class PersonajeTest {
 
 
     @Test
-    public void test3(){
+    public void PruebaCuantosHowwartshayAlive(){
         // TODO Crea una función que cuente a todos los personajes que forman parte del staff de Howarts y que están vivos
         //
         // TODO comprueba que tu función devuelve el número correcto de elementos
-
+            Assertions.assertEquals(17,ej.personajes.obtenerPotters().length);
     }
 
     @Test

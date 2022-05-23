@@ -58,22 +58,73 @@ public class Ejercicio5 {
 
 
     // TODO Crea una función que reciba una letra (char) y cuente todos personajes tienen esa letra en su nombre
-    public char CuantosTienenA(char letra){
-        int cont = 0;
-        Personaje[] todos = personajes.obtenerTodos();
-        Po
-        do{
-            if () {
+    public int CuantosTienenLetra(char letra) {
+        int fuera = personajes.obtenerTodos().length;
+        int i = 0;
 
+        for (Personaje personaje1 : personajes.obtenerTodos()) {
+            boolean encontrado = true;
+
+            if (!personaje1.getName().contains(String.valueOf(letra))) {
+                encontrado = false;
+                break;
             }
-        }while (!)
 
+            if (encontrado) {
+                i++;
+            }
+        }
+        return i;
     }
 
     // TODO Crea una función que reciba un string y devuelva una lista con todos los personajes que tienen ese string
     //  en su nombre y están vivos
 
+    public Personaje[] dimePersonajesQueContengaElStringYEstenVivos(String letras){
+        Personaje[] out = new Personaje[personajes.obtenerTodos().length];
+        int i=0;
+
+        for (Personaje personaje1 : out) {
+            boolean encontrado = true;
+            if (!(personaje1.getName().contains(String.valueOf(letras)) && !personaje1.getAlive())) {
+                encontrado = false;
+                break;
+            }
+
+            if (encontrado) {
+                out[i] = personaje1;
+                i++;
+            }
+        }
+
+        return getArraySinNulos(out,i);
+    }
+
 
     // TODO Crea una función que reciba un string y devuelva una lista con todos los personajes que su actor se llama
     //  exactamente como el string recibido
+
+    public Personaje[] dimeQuePersonajesSeLlamanAsi(String letras){
+        Personaje[] out = new Personaje[personajes.obtenerTodos().length];
+        int i=0;
+
+        for (Personaje personaje1 : out) {
+            boolean encontrado = true;
+            if (!(personaje1.getName().contentEquals(letras))) {
+                encontrado = false;
+                break;
+            }
+
+            if (encontrado) {
+                out[i] = personaje1;
+                i++;
+            }
+        }
+
+        return getArraySinNulos(out,i);
+    }
+
+
+
+
 }
